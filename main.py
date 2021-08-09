@@ -1,34 +1,32 @@
+#region import libraries
 import random as rand
 import clipboard
 import time
+#endregion
 
 chars = 'a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ! ?'.split(' ')
 length = int(input('How long do you want your password to be? '))
 
-def generatePassword(length):
+
+def generatePassword(length): #generate password function
 	password = ''
 	for i in range(length):
 		password = password + rand.choice(chars)
 	return password
 
+
 if length < 6:
 	print('Sorry, but for security reasons your password has to be longer than 6 characters.')
 	print('Please re-launch this program and try again.')
 
-	print('This program will automatically close in 5 seconds.')
+	print('Automatically closing in 5 seconds.')
 	time.sleep(5)
-elif length > 500:
-	print('Woah there!')
-	print('Don\'t you think that\'s a bit long?')
-	print('I mean most websites probably shouldn\'t allow a password that long anyway so...')
-	print('I might as well just not generate it.')
-	print('Sorry, but I just saved you loads of time ¯\_(ツ)_/¯')
 else:
-	print('Alright, got it!')
-	print('Depending on your length this may take a while.')
+	print(f'Alright {length} characters, got it!')
+	print('Depending on the length you picked, this may take a while.')
 	password = generatePassword(length)
 	print('Password generated!')
-	action = input('Would you like to copy to clipbaord now, or view your password? ')
+	action = input('Would you like to copy to clipbaord now, or view your password first? (show/copy) ')
 	action = action.lower()
 
 	if action == 'show':
@@ -36,14 +34,13 @@ else:
 		askToCopy = input('Would you like to copy this? (y/n) ')
 		if askToCopy == 'y':
 			clipboard.copy(password)
-			
 			print('Done.')
 		elif askToCopy == 'n':
-			print('Got it, will not copy.')
+			print('Will not copy.')
 			print('If you would like to re-generate the password, simply re-launch this program')
 
 		print('Thank you for using my program!')
-		print('This program will automatically close in 5 seconds.')
+		print('Automatically closing in 5 seconds.')
 		time.sleep(5)
 		
 	elif action == 'copy':
@@ -51,7 +48,7 @@ else:
 
 		print('Done.')
 		print('Thank you for using my program!')
-		print('This program will automatically close in 5 seconds.')
+		print('Automatically closing in 5 seconds.')
 		time.sleep(5)
 	else:
 		print('That was not one of the options!')
@@ -61,4 +58,5 @@ else:
 
 		print('This program will automatically close in 5 seconds.')
 		time.sleep(5)
+
 
