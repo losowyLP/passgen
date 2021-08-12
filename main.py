@@ -1,6 +1,6 @@
 #region import libraries
 import random as rand
-import clipboard
+import pyperclip
 import time
 #endregion
 
@@ -46,7 +46,7 @@ else:
 		print('Your password is: ' + password)
 		askToCopy = input('Would you like to copy this? (y/n) ')
 		if askToCopy == 'y':
-			clipboard.copy(password)
+			pyperclip.copy(password)
 			print('Done.')
 		elif askToCopy == 'n':
 			print('Will not copy.')
@@ -57,7 +57,7 @@ else:
 		time.sleep(5)
 		
 	elif action == 'copy':
-		clipboard.copy(password)
+		pyperclip.copy(password)
 
 		print('Done.')
 		print('Thank you for using my program!')
