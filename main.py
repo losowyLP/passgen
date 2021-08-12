@@ -4,25 +4,38 @@ import clipboard
 import time
 #endregion
 
+#region define variables
 chars = 'a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ! ?'.split(' ')
 length = int(input('How long do you want your password to be? '))
+#endregion
 
 
-def generatePassword(length): #generate password function
+def generatePassword(length): # generate password function
 	password = ''
 	for i in range(length):
 		password = password + rand.choice(chars)
 	return password
 
 
-if length < 6:
-	print('Sorry, but for security reasons your password has to be longer than 6 characters.')
+if length < 8:
+	print('Sorry, but for security reasons your password has to be longer than 8 characters.')
 	print('Please re-launch this program and try again.')
 
 	print('Automatically closing in 5 seconds.')
 	time.sleep(5)
+elif length == 420: # me being a party pooper
+	print('haha funny')
+	time.sleep(1)
+	print('no.')
+	time.sleep(5)
+elif length > 512:
+	print('Sorry, but your password is too long.')
+	print('This is to save your time if your computer is shit.')
+
+	print('Automatically closing in 5 seconds.')
+	time.sleep(5)
 else:
-	print(f'Alright {length} characters, got it!')
+	print(f'Alright, {length} characters, got it!')
 	print('Depending on the length you picked, this may take a while.')
 	password = generatePassword(length)
 	print('Password generated!')
